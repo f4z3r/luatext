@@ -94,4 +94,8 @@ context("Given colored texts,", function()
       )
     end)
   end)
+
+  describe("when they are provided with substrings, they", function()
+    pending()
+  end)
 end)
