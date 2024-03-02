@@ -8,7 +8,7 @@ local Layer = {
   BG = 48, -- background
 }
 
----return the ansi escape string for a color
+---return the ANSI escape string for a color
 ---@param layer Layer
 ---@param color number
 ---@return string
@@ -16,15 +16,12 @@ local function format_color(layer, color)
   return string.format(ESCAPE .. "[%d;5;%dm", layer, color)
 end
 
----return the reset ansi escape string
----@return string
-local function reset()
-  return ESCAPE .. "[0m"
-end
-
 ---@class ColoredString
 ---a string to which colors and modifiers can be applied
-local ColoredString = {}
+---@field RESET string ANSI escape to reset all formating
+local ColoredString = {
+  RESET = ESCAPE .. "[0m",
+}
 
 ---create a new ColoredString from a string
 ---@param str ColoredString|string?
@@ -95,7 +92,7 @@ function ColoredString:underlined()
   return self
 end
 
----add a substring to this ColoredString. Substrings will inherit the formatting of their parent.
+---add a substring to this ColoredString. Substrings will inherit the formating of their parent.
 ---@param str string|ColoredString
 ---@return ColoredString
 function ColoredString:add_substring(str)
@@ -105,7 +102,7 @@ function ColoredString:add_substring(str)
 end
 
 ---return the children substrings of this ColoredString
----@return table
+---@return ColoredString[]
 ---@private
 function ColoredString:children()
   return self._children or {}
@@ -130,7 +127,7 @@ function ColoredString:render_no_reset()
   res = res .. self._data
   for _, str in ipairs(self:children()) do
     res = res .. str:render_no_reset()
-    res = res .. reset()
+    res = res .. self.RESET
     res = res .. self:prefix()
   end
   return res
@@ -139,9 +136,9 @@ end
 ---render the ColoredString, turning it into an escaped string
 ---@return string
 function ColoredString:render()
-  local res = reset()
+  local res = self.RESET
   res = res .. self:render_no_reset()
-  res = res .. reset()
+  res = res .. self.RESET
   return res
 end
 
@@ -153,7 +150,5 @@ end
 function ColoredString.__tostring(self)
   return self:render()
 end
-
-ColoredString.reset = reset
 
 return ColoredString
