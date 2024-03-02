@@ -34,7 +34,31 @@ Running this code will produce the following output:
 
 ![Output from a simple example](assets/simple.jpeg)
 
+You can also add substrings to your text. The substrings will inherit the formatting of the parent
+text. Thus you can for instance run:
+
+```lua
+local text = require("luatext")
+
+local my_str = text
+    :new()
+    :fg(160)
+    :add_substrings(
+      "Hello ",
+      text:new("beautiful"):underlined(),
+      " world"
+    )
+
+print(my_str)
+```
+
+Which will produce a fully red string, with only the substring `beautiful` underlined:
+
+![Output from an example with substrings](assets/substrings.jpeg)
+
 ## Reference
+
+For a full reference of the API, see [the reference](/docs/reference.md).
 
 ## Installation
 

@@ -18,7 +18,7 @@ end
 
 ---@class ColoredString
 ---a string to which colors and modifiers can be applied
----@field RESET string ANSI escape to reset all formating
+---@field RESET string ANSI escape to reset all formatting
 local ColoredString = {
   RESET = ESCAPE .. "[0m",
 }
@@ -92,12 +92,15 @@ function ColoredString:underlined()
   return self
 end
 
----add a substring to this ColoredString. Substrings will inherit the formating of their parent.
----@param str string|ColoredString
+---add several substrings to this ColoredString.
+---@vararg string|ColoredString
 ---@return ColoredString
-function ColoredString:add_substring(str)
+function ColoredString:add_substrings(...)
   self._children = self._children or {}
-  self._children[#self._children + 1] = ColoredString:new(str)
+  local varargs = { ... }
+  for _, str in ipairs(varargs) do
+    self._children[#self._children + 1] = ColoredString:new(str)
+  end
   return self
 end
 
@@ -108,7 +111,7 @@ function ColoredString:children()
   return self._children or {}
 end
 
----return the formating prefix for this ColoredString
+---return the formatting prefix for this ColoredString
 ---@return string
 ---@private
 function ColoredString:prefix()

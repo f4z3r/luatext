@@ -6,14 +6,14 @@
     - [`new`](#new)
     - [`text`](#text)
     - [`fg`](#fg)
-    - [bg](#bg)
-    - [bold](#bold)
-    - [dim](#dim)
-    - [italic](#italic)
-    - [render](#render)
-    - [RESET](#reset)
-    - [underlined](#underlined)
-    - [add_substring](#addsubstring)
+    - [`bg`](#bg)
+    - [`bold`](#bold)
+    - [`dim`](#dim)
+    - [`italic`](#italic)
+    - [`underlined`](#underlined)
+    - [`add_substrings`](#addsubstrings)
+    - [`render`](#render)
+    - [`RESET`](#reset)
 <!--toc:end-->
 
 ## `ColoredString`
@@ -53,88 +53,83 @@ Set the foreground color of this `ColoredString`.
 
 @_param_ `color` — The color to set.
 
-### bg
-
+### `bg`
 
 ```lua
 (method) ColoredString:bg(color: number)
   -> ColoredString
 ```
 
-set the background color of this ColoredString
+Set the background color of this `ColoredString`.
 
-### bold
+@_param_ `color` — The color to set.
 
+### `bold`
 
 ```lua
 (method) ColoredString:bold()
   -> ColoredString
 ```
 
-set the font of this ColoredString to bold
+Set the font of this `ColoredString` to bold.
 
-
-### dim
-
+### `dim`
 
 ```lua
 (method) ColoredString:dim()
   -> ColoredString
 ```
 
-set the font of this ColoredString to dim
+Set the font of this `ColoredString` to dim.
 
-
-### italic
-
+### `italic`
 
 ```lua
 (method) ColoredString:italic()
   -> ColoredString
 ```
 
-set the font of this ColoredString to italic
+Set the font of this `ColoredString` to italic.
 
-
-### render
-
-
-```lua
-(method) ColoredString:render()
-  -> string
-```
-
-render the ColoredString, turning it into an escaped string
-
-
-### RESET
-
-
-```lua
-string
-```
-
-ANSI escape to reset all formating
-
-
-
-### underlined
+### `underlined`
 
 ```lua
 (method) ColoredString:underlined()
   -> ColoredString
 ```
 
-set the font of this ColoredString to underlined
+Set the font of this `ColoredString` to underlined.
 
-
-### add_substring
+### `add_substrings`
 
 ```lua
-(method) ColoredString:add_substring(str: string|ColoredString)
+(method) ColoredString:add_substrings(...string|ColoredString)
   -> ColoredString
 ```
 
-add a substring to this ColoredString. Substrings will inherit the formatting of their parent.
+Add one or more substrings to this `ColoredString`. Substrings will inherit the formatting of the
+parent string but can add additional formatting properties or overwrite the properties of the
+parent.
 
-@_param_ `array` — The array to append to the end of this one
+@_vararg_ — The substrings to add to this `ColoredString`.
+
+### `render`
+
+```lua
+(method) ColoredString:render()
+  -> string
+```
+
+Render the `ColoredString`, turning it into an escaped string. This typically does not need to be
+called explicitly, as the `ColoredString` will automatically render when used in a `string` context
+(such as when printing it).
+
+### `RESET`
+
+```lua
+string
+```
+
+The ANSI escape to reset all formatting. This is only to be used in bogus cases. A `ColoredString`
+will automatically reset the formatting at the very end of the string to avoid formatting leaking
+into following text.
