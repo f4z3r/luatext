@@ -32,7 +32,7 @@ print(my_str)
 
 Running this code will produce the following output:
 
-![Output from a simple example](assets/simple.jpeg)
+![Output from a simple example](assets/simple.png)
 
 You can also add substrings to your text. The substrings will inherit the formatting of the parent
 text. Thus you can for instance run:
@@ -54,7 +54,7 @@ print(my_str)
 
 Which will produce a fully red string, with only the substring `beautiful` underlined:
 
-![Output from an example with substrings](assets/substrings.jpeg)
+![Output from an example with substrings](assets/substrings.png)
 
 ## Reference
 
