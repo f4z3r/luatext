@@ -22,6 +22,7 @@
   - [append](#append)
     - [append example](#append-example)
   - [render](#render)
+  - [COLOR](#color)
   - [RESET](#reset)
 <!--toc:end-->
 
@@ -248,7 +249,7 @@ Print a red string, in which the word `beautiful` is underlined:
 local text = require("luatext")
 local my_str = text
   :new()
-  :fg(160)
+  :fg(text.COLOR.RED)
   :append(
     "Hello ",
     text:new("beautiful"):underlined(),
@@ -269,6 +270,25 @@ print(my_str)
 Render the `LuaText`, turning it into an escaped string. This typically does not need to be
 called explicitly, as the `LuaText` will automatically render when used in a `string` context
 (such as when printing it).
+
+---
+
+## COLOR
+
+```lua
+table
+```
+
+Standard ANSI colors. Can be used in place of any color code. Available values are:
+
+- `BLACK`
+- `RED`
+- `GREEN`
+- `YELLOW`
+- `BLUE`
+- `MAGENTA`
+- `CYAN`
+- `WHITE`
 
 ---
 
