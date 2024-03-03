@@ -18,20 +18,24 @@
     - [`RESET`](#reset)
 <!--toc:end-->
 
-## `ColoredString`
+## ColoredString
 
 <!-- TODO add general desciption about the usage -->
 
-### `new`
+### new
 
 ```lua
-(method) ColoredString:new(str?: string|ColoredString)
-  -> ColoredString
+(method) ColoredString:new(str?: string|ColoredString) 
+  -> result: ColoredString
 ```
 
 Create a new `ColoredString` from a string.
 
-- @_param_ `str` — The text to be displayed in this `ColoredString`.
+Parameters:
+- `str` — The text to be displayed in this `ColoredString`.
+
+Output:
+- `result` - the resulting thingy
 
 ### `text`
 
