@@ -2,20 +2,28 @@
 
 <!--toc:start-->
 - [LuaText](#luatext)
-  - [`ColoredString`](#coloredstring)
-    - [`new`](#new)
-    - [`text`](#text)
-    - [`fg`](#fg)
-    - [`fg_rgb`](#fg_rgb)
-    - [`bg`](#bg)
-    - [`bg_rgb`](#bg_rgb)
-    - [`bold`](#bold)
-    - [`dim`](#dim)
-    - [`italic`](#italic)
-    - [`underlined`](#underlined)
-    - [`add_substrings`](#add_substrings)
-    - [`render`](#render)
-    - [`RESET`](#reset)
+  - [ColoredString](#coloredstring)
+    - [new](#new)
+    - [text](#text)
+    - [fg](#fg)
+      - [Example](#example)
+    - [bg](#bg)
+      - [Example](#example)
+    - [bold](#bold)
+    - [dim](#dim)
+    - [italic](#italic)
+    - [underlined](#underlined)
+    - [blink](#blink)
+    - [inverse](#inverse)
+    - [hidden](#hidden)
+    - [strikethrough](#strikethrough)
+    - [framed](#framed)
+    - [encircled](#encircled)
+    - [overlined](#overlined)
+    - [append](#append)
+      - [Example](#example)
+    - [render](#render)
+    - [RESET](#reset)
 <!--toc:end-->
 
 ## ColoredString
@@ -26,7 +34,7 @@
 
 ```lua
 (method) ColoredString:new(str?: string|ColoredString) 
-  -> result: ColoredString
+  -> ColoredString
 ```
 
 Create a new `ColoredString` from a string.
@@ -34,10 +42,7 @@ Create a new `ColoredString` from a string.
 Parameters:
 - `str` — The text to be displayed in this `ColoredString`.
 
-Output:
-- `result` - the resulting thingy
-
-### `text`
+### text
 
 ```lua
 (method) ColoredString:text(str: string)
@@ -46,124 +51,188 @@ Output:
 
 Set the text of this `ColoredString`.
 
-- @_param_ `str` — The text to set.
+Parameters:
+- `str` — The text to be displayed in this `ColoredString`.
 
-### `fg`
+### fg
 
 ```lua
-(method) ColoredString:fg(color: number)
+(method) ColoredString:fg(color: number|table)
   -> ColoredString
 ```
 
 Set the foreground color of this `ColoredString`.
 
-- @_param_ `color` — The color to set, as an ANSI color code.
+Parameters:
+- `color` — The color to set. This can be either an ANSI256 color code, or a table of RGB values.
 
-### `fg_rgb`
+#### Example
 
 ```lua
-(method) ColoredString:fg_rgb(r: number, g: number, b: number)
-  -> ColoredString
+local text = require("luatext")
+print(text:new("Hello"):fg(160)) -- prints in red
+print(text:new("Hi"):fg({0, 255, 0})) -- prints in green
 ```
 
-Set the foreground color of this `ColoredString` to an RGB value.
-
-- @_param_ `r` — The red value to set (between 0 and 255).
-- @_param_ `g` — The green value to set (between 0 and 255).
-- @_param_ `b` — The blue value to set (between 0 and 255).
-
-### `bg`
+### bg
 
 ```lua
-(method) ColoredString:bg(color: number)
+(method) ColoredString:bg(color: number|table)
   -> ColoredString
 ```
 
 Set the background color of this `ColoredString`.
 
-- @_param_ `color` — The color to set, as an ANSI color code.
+Parameters:
+- `color` — The color to set. This can be either an ANSI256 color code, or a table of RGB values.
 
-### `bg_rgb`
+#### Example
 
 ```lua
-(method) ColoredString:bg_rgb(r: number, g: number, b: number)
-  -> ColoredString
+local text = require("luatext")
+print(text:new("Hello"):bg(160)) -- prints on red background
+print(text:new("Hi"):bg({0, 255, 0})) -- prints on green background
 ```
 
-Set the background color of this `ColoredString` to an RGB value.
-
-- @_param_ `r` — The red value to set (between 0 and 255).
-- @_param_ `g` — The green value to set (between 0 and 255).
-- @_param_ `b` — The blue value to set (between 0 and 255).
-
-### `bold`
+### bold
 
 ```lua
 (method) ColoredString:bold()
   -> ColoredString
 ```
 
-Set the font of this `ColoredString` to bold.
+Make the fond bold.
 
-### `dim`
+### dim
 
 ```lua
 (method) ColoredString:dim()
   -> ColoredString
 ```
 
-Set the font of this `ColoredString` to dim.
+Make the text dim.
 
-### `italic`
+### italic
 
 ```lua
 (method) ColoredString:italic()
   -> ColoredString
 ```
 
-Set the font of this `ColoredString` to italic.
+Make the fond italic.
 
-### `underlined`
+### underlined
 
 ```lua
 (method) ColoredString:underlined()
   -> ColoredString
 ```
 
-Set the font of this `ColoredString` to underlined.
+Make the text underlined.
 
-### `blink`
+### blink
 
 ```lua
 (method) ColoredString:blink()
   -> ColoredString
 ```
 
-Set the text of this `ColoredString` to blink.
+Make the text blink.
 
-### `crossed`
+### inverse
 
 ```lua
-(method) ColoredString:crossed()
+(method) ColoredString:inverse()
   -> ColoredString
 ```
 
-Set the font of this `ColoredString` to crossed-out.
+Invert the text.
 
-### `add_substrings`
+> Support for this may vary.
+
+### hidden
 
 ```lua
-(method) ColoredString:add_substrings(...string|ColoredString)
+(method) ColoredString:inverse()
   -> ColoredString
 ```
 
-Add one or more substrings to this `ColoredString`. Substrings will inherit the formatting of the
-parent string but can add additional formatting properties or overwrite the properties of the
-parent.
+Hide the text
 
-- @_vararg_ — The substrings to add to this `ColoredString`.
+### strikethrough
 
-### `render`
+```lua
+(method) ColoredString:strikethrough()
+  -> ColoredString
+```
+
+Make the text strikethrough.
+
+### framed
+
+```lua
+(method) ColoredString:framed()
+  -> ColoredString
+```
+
+Frame the text.
+
+> Support for this may vary.
+
+### encircled
+
+```lua
+(method) ColoredString:encircled()
+  -> ColoredString
+```
+
+Encircle the text.
+
+> Support for this may vary.
+
+### overlined
+
+```lua
+(method) ColoredString:overlined()
+  -> ColoredString
+```
+
+Make the text overlined.
+
+> Support for this may vary.
+
+### append
+
+```lua
+(method) ColoredString:append(...string|ColoredString)
+  -> ColoredString
+```
+
+Append one or more strings or `ColoredString`s to this string. Appended elements will inherit the
+formatting of the original string. This is used to apply additional formatting or overwrite
+formatting from the original string for a substring.
+
+Parameters:
+- `...` — The strings to append.
+
+#### Example
+
+Print a red string, in which the word `beautiful` is underlined:
+
+```lua
+local text = require("luatext")
+local my_str = text
+  :new()
+  :fg(160)
+  :append(
+    "Hello ",
+    text:new("beautiful"):underlined(),
+    " world"
+  )
+print(my_str)
+```
+
+### render
 
 ```lua
 (method) ColoredString:render()
@@ -174,7 +243,7 @@ Render the `ColoredString`, turning it into an escaped string. This typically do
 called explicitly, as the `ColoredString` will automatically render when used in a `string` context
 (such as when printing it).
 
-### `RESET`
+### RESET
 
 ```lua
 string

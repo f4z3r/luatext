@@ -3,7 +3,7 @@ local text = require("luatext")
 local my_str = text
     :new()
     :fg(160)
-    :add_substrings(
+    :append(
       "Hello ",
       text:new("beautiful"):underlined(),
       " world"

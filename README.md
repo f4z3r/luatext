@@ -23,8 +23,8 @@ local text = require("luatext")
 
 local my_str = text
     :new("Hello world!!")
-    :fg(160)
-    :bg(16)
+    :fg(160)  -- red as an ANSI256 color code
+    :bg({0, 0, 0}) -- black as an RGB value
     :underlined()
 
 print(my_str)
@@ -43,7 +43,7 @@ local text = require("luatext")
 local my_str = text
     :new()
     :fg(160)
-    :add_substrings(
+    :append(
       "Hello ",
       text:new("beautiful"):underlined(),
       " world"
@@ -62,7 +62,7 @@ For a full reference of the API, see [the reference](/docs/reference.md).
 
 ## Installation
 
-## Color Codes
+## ANSI256 Color Codes
 
 To get a list of ANSI color codes run:
 
