@@ -1,5 +1,5 @@
 package = "LuaText"
-version = "0.1.0"
+version = "0.1.0-0"
 source = {
   url = "git://github.com/f4z3r/luatext.git",
    tag = "v0.1.0",
