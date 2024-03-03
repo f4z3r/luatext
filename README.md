@@ -46,7 +46,7 @@ local text = require("luatext")
 
 local my_str = text
     :new()
-    :fg(text.COLOR.RED)
+    :fg(text.Color.Red)
     :append(
       "Hello ",
       text:new("beautiful"):underlined(),

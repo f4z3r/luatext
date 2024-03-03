@@ -32,19 +32,20 @@ local ESCAPE_CODES = {
 ---@class LuaText
 ---a string to which colors and modifiers can be applied
 ---@field RESET string ANSI escape to reset all formatting
----@field COLOR table ANSI standard colors
 local LuaText = {
   RESET = ESCAPE_START .. ESCAPE_CODES.reset .. ESCAPE_END,
-  COLOR = {
-    BLACK = 0,
-    RED = 1,
-    GREEN = 2,
-    YELLOW = 3,
-    BLUE = 4,
-    MAGENTA = 5,
-    CYAN = 6,
-    WHITE = 7,
-  },
+}
+
+---@enum Color
+LuaText.Color = {
+  Black = 0,
+  Red = 1,
+  Green = 2,
+  Yellow = 3,
+  Blue = 4,
+  Magenta = 5,
+  Cyan = 6,
+  White = 7,
 }
 
 ---create a new LuaText from a string
@@ -59,7 +60,7 @@ function LuaText:new(str)
       _modifiers = {},
       _colors = {},
       RESET = LuaText.RESET,
-      COLOR = LuaText.COLOR,
+      Color = LuaText.Color,
     }
   end
   setmetatable(obj, self)

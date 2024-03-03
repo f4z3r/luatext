@@ -22,7 +22,7 @@
   - [append](#append)
     - [append example](#append-example)
   - [render](#render)
-  - [COLOR](#color)
+  - [Color](#color)
   - [RESET](#reset)
 <!--toc:end-->
 
@@ -273,7 +273,7 @@ called explicitly, as the `LuaText` will automatically render when used in a `st
 
 ---
 
-## COLOR
+## Color
 
 ```lua
 table
@@ -281,14 +281,14 @@ table
 
 Standard ANSI colors. Can be used in place of any color code. Available values are:
 
-- `BLACK`
-- `RED`
-- `GREEN`
-- `YELLOW`
-- `BLUE`
-- `MAGENTA`
-- `CYAN`
-- `WHITE`
+- `Black`
+- `Red`
+- `Green`
+- `Yellow`
+- `Blue`
+- `Magenta`
+- `Cyan`
+- `White`
 
 ---
 
