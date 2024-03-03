@@ -157,7 +157,7 @@ Add one or more substrings to this `ColoredString`. Substrings will inherit the 
 parent string but can add additional formatting properties or overwrite the properties of the
 parent.
 
-@_vararg_ — The substrings to add to this `ColoredString`.
+- @_vararg_ — The substrings to add to this `ColoredString`.
 
 ### `render`
 
