@@ -2,9 +2,8 @@ local string = require("string")
 local table = require("table")
 
 --- compatibility
-local _ENV = require("compat53.module")
-if setfenv then
-  setfenv(1, _ENV)
+if not table.unpack and unpack then
+  table.unpack = unpack
 end
 
 local ESCAPE_START = string.format("%c[", 27)

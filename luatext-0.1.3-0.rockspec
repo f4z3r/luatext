@@ -1,8 +1,8 @@
 package = "LuaText"
-version = "0.1.2-0"
+version = "0.1.3-0"
 source = {
   url = "git://github.com/f4z3r/luatext.git",
-   tag = "v0.1.1",
+   tag = "v0.1.3",
 }
 description = {
   summary = "A small library to print colored text",
@@ -16,7 +16,6 @@ description = {
 }
 dependencies = {
   "lua >= 5.1",
-  "compat53 >= 0.12",
 }
 build = {
   type = "builtin",
