@@ -60,6 +60,16 @@ Which will produce a fully red string, with only the substring `beautiful` under
 
 ![Output from an example with substrings](assets/substrings.png)
 
+A LuaText object can also be used as a standard string:
+
+```lua
+local text = require("luatext")
+
+print("Hello "..text:new("fading"):blink().." world...")
+```
+
+Which will print `Hello fading world...` with the word `fading` blinking.
+
 ## Reference
 
 For a full reference of the API, see [the reference](/docs/reference.md).
