@@ -1,6 +1,13 @@
 local string = require("string")
 local table = require("table")
 
+--- compatibility
+local unpack = unpack
+do
+  local version = string.match(_VERSION, "%d.(%d)")
+  if tonumber(version) > 3 then unpack = table.unpack end
+end
+
 local ESCAPE_START = string.format("%c[", 27)
 local ESCAPE_END = "m"
 local RGB_FORMAT = ";2;%d;%d;%d"
@@ -23,17 +30,17 @@ local ESCAPE_CODES = {
   bg = 48,
 }
 
----@class ColoredString
+---@class LuaText
 ---a string to which colors and modifiers can be applied
 ---@field RESET string ANSI escape to reset all formatting
-local ColoredString = {
+local LuaText = {
   RESET = ESCAPE_START .. ESCAPE_CODES.reset .. ESCAPE_END,
 }
 
----create a new ColoredString from a string
----@param str ColoredString|string?
----@return ColoredString
-function ColoredString:new(str)
+---create a new LuaText from a string
+---@param str LuaText|string?
+---@return LuaText
+function LuaText:new(str)
   local obj = str
   if type(obj) ~= "table" then
     str = str or ""
@@ -48,130 +55,130 @@ function ColoredString:new(str)
   return obj
 end
 
----set the text of this ColoredString
+---set the text of this LuaText
 ---@param str string
----@return ColoredString
-function ColoredString:text(str)
+---@return LuaText
+function LuaText:text(str)
   self._data = str
   return self
 end
 
----set the foreground color of this ColoredString
+---set the foreground color of this LuaText
 ---@param color number|table either an ANSI256 color code, or a RGB table
----@return ColoredString
-function ColoredString:fg(color)
+---@return LuaText
+function LuaText:fg(color)
   self._colors.fg = color
   return self
 end
 
----set the background color of this ColoredString
+---set the background color of this LuaText
 ---@param color number|table either an ANSI256 color code, or a RGB table
----@return ColoredString
-function ColoredString:bg(color)
+---@return LuaText
+function LuaText:bg(color)
   self._colors.bg = color
   return self
 end
 
 ---apply the bold modifier
----@return ColoredString
-function ColoredString:bold()
+---@return LuaText
+function LuaText:bold()
   self._modifiers.bold = true
   return self
 end
 
 ---apply the dim modifier
----@return ColoredString
-function ColoredString:dim()
+---@return LuaText
+function LuaText:dim()
   self._modifiers.dim = true
   return self
 end
 
 ---apply the italic modifier
----@return ColoredString
-function ColoredString:italic()
+---@return LuaText
+function LuaText:italic()
   self._modifiers.italic = true
   return self
 end
 
 ---apply the underlined modifier
----@return ColoredString
-function ColoredString:underlined()
+---@return LuaText
+function LuaText:underlined()
   self._modifiers.underlined = true
   return self
 end
 
 ---apply the blink modifier
----@return ColoredString
-function ColoredString:blink()
+---@return LuaText
+function LuaText:blink()
   self._modifiers.blink = true
   return self
 end
 
 ---apply the inverse modifier
----@return ColoredString
-function ColoredString:inverse()
+---@return LuaText
+function LuaText:inverse()
   self._modifiers.inverse = true
   return self
 end
 
 ---apply the hidden modifier
----@return ColoredString
-function ColoredString:hidden()
+---@return LuaText
+function LuaText:hidden()
   self._modifiers.hidden = true
   return self
 end
 
 ---apply the strikethrough modifier
----@return ColoredString
-function ColoredString:strikethrough()
+---@return LuaText
+function LuaText:strikethrough()
   self._modifiers.strikethrough = true
   return self
 end
 
 ---apply the framed modifier
----@return ColoredString
-function ColoredString:framed()
+---@return LuaText
+function LuaText:framed()
   self._modifiers.framed = true
   return self
 end
 
 ---apply the encircled modifier
----@return ColoredString
-function ColoredString:encircled()
+---@return LuaText
+function LuaText:encircled()
   self._modifiers.encircled = true
   return self
 end
 
 ---apply the overlined modifier
----@return ColoredString
-function ColoredString:overlined()
+---@return LuaText
+function LuaText:overlined()
   self._modifiers.overlined = true
   return self
 end
 
----append strings to this ColoredString
----@vararg string|ColoredString
----@return ColoredString
-function ColoredString:append(...)
+---append strings to this LuaText
+---@vararg string|LuaText
+---@return LuaText
+function LuaText:append(...)
   self._children = self._children or {}
   local varargs = { ... }
   for _, str in ipairs(varargs) do
-    self._children[#self._children + 1] = ColoredString:new(str)
+    self._children[#self._children + 1] = LuaText:new(str)
   end
   return self
 end
 
----return the children substrings of this ColoredString
----@return ColoredString[]
+---return the children substrings of this LuaText
+---@return LuaText[]
 ---@private
-function ColoredString:children()
+function LuaText:children()
   return self._children or {}
 end
 
----return the formatting prefix for this ColoredString
+---return the formatting prefix for this LuaText
 ---@return string
 ---@private
-function ColoredString:prefix()
+function LuaText:prefix()
   local modifiers = {}
   for key, _ in pairs(self._modifiers) do
     modifiers[#modifiers + 1] = tostring(ESCAPE_CODES[key])
@@ -187,10 +194,10 @@ function ColoredString:prefix()
   return ESCAPE_START .. table.concat(modifiers, ";") .. ESCAPE_END
 end
 
----render the ColoredString without resetting the colors at the string edges
+---render the LuaText without resetting the colors at the string edges
 ---@return string
 ---@private
-function ColoredString:render_no_reset()
+function LuaText:render_no_reset()
   local res = self:prefix()
   res = res .. self._data
   for _, str in ipairs(self:children()) do
@@ -201,22 +208,22 @@ function ColoredString:render_no_reset()
   return res
 end
 
----render the ColoredString, turning it into an escaped string
+---render the LuaText, turning it into an escaped string
 ---@return string
-function ColoredString:render()
+function LuaText:render()
   local res = self.RESET
   res = res .. self:render_no_reset()
   res = res .. self.RESET
   return res
 end
 
-function ColoredString.__concat(self, other)
-  if type(other) == "string" then return ColoredString:new(self):render() .. other end
-  return ColoredString:new(self):append(other)
+function LuaText.__concat(self, other)
+  if type(other) == "string" then return LuaText:new(self):render() .. other end
+  return LuaText:new(self):append(other)
 end
 
-function ColoredString.__tostring(self)
+function LuaText.__tostring(self)
   return self:render()
 end
 
-return ColoredString
+return LuaText

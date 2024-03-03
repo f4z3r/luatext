@@ -2,7 +2,7 @@
 
 <!--toc:start-->
 - [LuaText](#luatext)
-  - [ColoredString](#coloredstring)
+  - [LuaText](#coloredstring)
     - [new](#new)
     - [text](#text)
     - [fg](#fg)
@@ -26,51 +26,47 @@
     - [RESET](#reset)
 <!--toc:end-->
 
-## ColoredString
-
-<!-- TODO add general desciption about the usage -->
-
-### new
+## new
 
 ```lua
-(method) ColoredString:new(str?: string|ColoredString) 
-  -> ColoredString
+(method) LuaText:new(str?: string|LuaText) 
+  -> LuaText
 ```
 
-Create a new `ColoredString` from a string.
+Create a new `LuaText` from a string.
 
 Parameters:
-- `str` — The text to be displayed in this `ColoredString`.
+- `str` — The text to be displayed in this `LuaText`.
 
 ---
 
-### text
+## text
 
 ```lua
-(method) ColoredString:text(str: string)
-  -> ColoredString
+(method) LuaText:text(str: string)
+  -> LuaText
 ```
 
-Set the text of this `ColoredString`.
+Set the text of this `LuaText`.
 
 Parameters:
-- `str` — The text to be displayed in this `ColoredString`.
+- `str` — The text to be displayed in this `LuaText`.
 
 ---
 
-### fg
+## fg
 
 ```lua
-(method) ColoredString:fg(color: number|table)
-  -> ColoredString
+(method) LuaText:fg(color: number|table)
+  -> LuaText
 ```
 
-Set the foreground color of this `ColoredString`.
+Set the foreground color of this `LuaText`.
 
 Parameters:
 - `color` — The color to set. This can be either an ANSI256 color code, or a table of RGB values.
 
-#### Example
+### Example
 
 ```lua
 local text = require("luatext")
@@ -80,19 +76,19 @@ print(text:new("Hi"):fg({0, 255, 0})) -- prints in green
 
 ---
 
-### bg
+## bg
 
 ```lua
-(method) ColoredString:bg(color: number|table)
-  -> ColoredString
+(method) LuaText:bg(color: number|table)
+  -> LuaText
 ```
 
-Set the background color of this `ColoredString`.
+Set the background color of this `LuaText`.
 
 Parameters:
 - `color` — The color to set. This can be either an ANSI256 color code, or a table of RGB values.
 
-#### Example
+### Example
 
 ```lua
 local text = require("luatext")
@@ -102,66 +98,66 @@ print(text:new("Hi"):bg({0, 255, 0})) -- prints on green background
 
 ---
 
-### bold
+## bold
 
 ```lua
-(method) ColoredString:bold()
-  -> ColoredString
+(method) LuaText:bold()
+  -> LuaText
 ```
 
 Make the fond bold.
 
 ---
 
-### dim
+## dim
 
 ```lua
-(method) ColoredString:dim()
-  -> ColoredString
+(method) LuaText:dim()
+  -> LuaText
 ```
 
 Make the text dim.
 
 ---
 
-### italic
+## italic
 
 ```lua
-(method) ColoredString:italic()
-  -> ColoredString
+(method) LuaText:italic()
+  -> LuaText
 ```
 
 Make the fond italic.
 
 ---
 
-### underlined
+## underlined
 
 ```lua
-(method) ColoredString:underlined()
-  -> ColoredString
+(method) LuaText:underlined()
+  -> LuaText
 ```
 
 Make the text underlined.
 
 ---
 
-### blink
+## blink
 
 ```lua
-(method) ColoredString:blink()
-  -> ColoredString
+(method) LuaText:blink()
+  -> LuaText
 ```
 
 Make the text blink.
 
 ---
 
-### inverse
+## inverse
 
 ```lua
-(method) ColoredString:inverse()
-  -> ColoredString
+(method) LuaText:inverse()
+  -> LuaText
 ```
 
 Invert the text.
@@ -170,33 +166,33 @@ Invert the text.
 
 ---
 
-### hidden
+## hidden
 
 ```lua
-(method) ColoredString:inverse()
-  -> ColoredString
+(method) LuaText:inverse()
+  -> LuaText
 ```
 
 Hide the text
 
 ---
 
-### strikethrough
+## strikethrough
 
 ```lua
-(method) ColoredString:strikethrough()
-  -> ColoredString
+(method) LuaText:strikethrough()
+  -> LuaText
 ```
 
 Make the text strikethrough.
 
 ---
 
-### framed
+## framed
 
 ```lua
-(method) ColoredString:framed()
-  -> ColoredString
+(method) LuaText:framed()
+  -> LuaText
 ```
 
 Frame the text.
@@ -205,11 +201,11 @@ Frame the text.
 
 ---
 
-### encircled
+## encircled
 
 ```lua
-(method) ColoredString:encircled()
-  -> ColoredString
+(method) LuaText:encircled()
+  -> LuaText
 ```
 
 Encircle the text.
@@ -218,11 +214,11 @@ Encircle the text.
 
 ---
 
-### overlined
+## overlined
 
 ```lua
-(method) ColoredString:overlined()
-  -> ColoredString
+(method) LuaText:overlined()
+  -> LuaText
 ```
 
 Make the text overlined.
@@ -231,21 +227,21 @@ Make the text overlined.
 
 ---
 
-### append
+## append
 
 ```lua
-(method) ColoredString:append(...string|ColoredString)
-  -> ColoredString
+(method) LuaText:append(...string|LuaText)
+  -> LuaText
 ```
 
-Append one or more strings or `ColoredString`s to this string. Appended elements will inherit the
+Append one or more strings or `LuaText`s to this string. Appended elements will inherit the
 formatting of the original string. This is used to apply additional formatting or overwrite
 formatting from the original string for a substring.
 
 Parameters:
 - `...` — The strings to append.
 
-#### Example
+### Example
 
 Print a red string, in which the word `beautiful` is underlined:
 
@@ -264,25 +260,25 @@ print(my_str)
 
 ---
 
-### render
+## render
 
 ```lua
-(method) ColoredString:render()
+(method) LuaText:render()
   -> string
 ```
 
-Render the `ColoredString`, turning it into an escaped string. This typically does not need to be
-called explicitly, as the `ColoredString` will automatically render when used in a `string` context
+Render the `LuaText`, turning it into an escaped string. This typically does not need to be
+called explicitly, as the `LuaText` will automatically render when used in a `string` context
 (such as when printing it).
 
 ---
 
-### RESET
+## RESET
 
 ```lua
 string
 ```
 
-The ANSI escape to reset all formatting. This is only to be used in bogus cases. A `ColoredString`
+The ANSI escape to reset all formatting. This is only to be used in bogus cases. A `LuaText`
 will automatically reset the formatting at the very end of the string to avoid formatting leaking
 into following text.

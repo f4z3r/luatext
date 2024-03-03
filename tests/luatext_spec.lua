@@ -96,6 +96,16 @@ context("Given colored texts,", function()
   end)
 
   describe("when they are provided with substrings, they", function()
-    pending()
+    before_each(function()
+      red:append(" car ", text:new("speeding"):bold(), " through town")
+    end)
+    it("should apply potential modifications only to substrings", function()
+      assert.is_true(
+        string.find(red:render(), "%D1%D") < string.find(red:render(), "speeding")
+      )
+      assert.is_true(
+        string.find(red:render(), "%D0%D", 7) < string.find(red:render(), "through")
+      )
+    end)
   end)
 end)

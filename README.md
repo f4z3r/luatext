@@ -14,6 +14,10 @@ A small zero dependency library to print colored text to the console.
     - [Testing](#testing)
 <!--toc:end-->
 
+---
+
+> LuaText should be compatible with LuaJIT 2.1, Lua 5.1, 5.2, 5.3, and 5.4.
+
 ## Example
 
 A simple example to render an entire string in red on a black background, underlined:
