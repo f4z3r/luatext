@@ -42,6 +42,8 @@ Create a new `ColoredString` from a string.
 Parameters:
 - `str` — The text to be displayed in this `ColoredString`.
 
+---
+
 ### text
 
 ```lua
@@ -53,6 +55,8 @@ Set the text of this `ColoredString`.
 
 Parameters:
 - `str` — The text to be displayed in this `ColoredString`.
+
+---
 
 ### fg
 
@@ -74,6 +78,8 @@ print(text:new("Hello"):fg(160)) -- prints in red
 print(text:new("Hi"):fg({0, 255, 0})) -- prints in green
 ```
 
+---
+
 ### bg
 
 ```lua
@@ -94,6 +100,8 @@ print(text:new("Hello"):bg(160)) -- prints on red background
 print(text:new("Hi"):bg({0, 255, 0})) -- prints on green background
 ```
 
+---
+
 ### bold
 
 ```lua
@@ -102,6 +110,8 @@ print(text:new("Hi"):bg({0, 255, 0})) -- prints on green background
 ```
 
 Make the fond bold.
+
+---
 
 ### dim
 
@@ -112,6 +122,8 @@ Make the fond bold.
 
 Make the text dim.
 
+---
+
 ### italic
 
 ```lua
@@ -120,6 +132,8 @@ Make the text dim.
 ```
 
 Make the fond italic.
+
+---
 
 ### underlined
 
@@ -130,6 +144,8 @@ Make the fond italic.
 
 Make the text underlined.
 
+---
+
 ### blink
 
 ```lua
@@ -138,6 +154,8 @@ Make the text underlined.
 ```
 
 Make the text blink.
+
+---
 
 ### inverse
 
@@ -150,6 +168,8 @@ Invert the text.
 
 > Support for this may vary.
 
+---
+
 ### hidden
 
 ```lua
@@ -159,6 +179,8 @@ Invert the text.
 
 Hide the text
 
+---
+
 ### strikethrough
 
 ```lua
@@ -167,6 +189,8 @@ Hide the text
 ```
 
 Make the text strikethrough.
+
+---
 
 ### framed
 
@@ -179,6 +203,8 @@ Frame the text.
 
 > Support for this may vary.
 
+---
+
 ### encircled
 
 ```lua
@@ -190,6 +216,8 @@ Encircle the text.
 
 > Support for this may vary.
 
+---
+
 ### overlined
 
 ```lua
@@ -200,6 +228,8 @@ Encircle the text.
 Make the text overlined.
 
 > Support for this may vary.
+
+---
 
 ### append
 
@@ -232,6 +262,8 @@ local my_str = text
 print(my_str)
 ```
 
+---
+
 ### render
 
 ```lua
@@ -242,6 +274,8 @@ print(my_str)
 Render the `ColoredString`, turning it into an escaped string. This typically does not need to be
 called explicitly, as the `ColoredString` will automatically render when used in a `string` context
 (such as when printing it).
+
+---
 
 ### RESET
 
