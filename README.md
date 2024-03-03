@@ -1,6 +1,6 @@
 # LuaText
 
-A small zero dependency library to print colored text to the console.
+A small library to print colored text to the console.
 
 ---
 
@@ -93,8 +93,3 @@ Testing is done via `busted`. To run all tests, run:
 ```bash
 busted .
 ```
-
-
-
-<!-- https://luarocks.org/enet-1.0-0.rockspec -->
-<!-- https://github.com/luarocks/luarocks/wiki/Rockspec-format -->

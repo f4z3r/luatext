@@ -2,10 +2,9 @@ local string = require("string")
 local table = require("table")
 
 --- compatibility
-local unpack = unpack
-do
-  local version = string.match(_VERSION, "%d.(%d)")
-  if tonumber(version) > 3 then unpack = table.unpack end
+local _ENV = require("compat53.module")
+if setfenv then
+  setfenv(1, _ENV)
 end
 
 local ESCAPE_START = string.format("%c[", 27)
@@ -59,6 +58,8 @@ function LuaText:new(str)
       _data = str,
       _modifiers = {},
       _colors = {},
+      RESET = LuaText.RESET,
+      COLOR = LuaText.COLOR,
     }
   end
   setmetatable(obj, self)
@@ -196,12 +197,14 @@ function LuaText:prefix()
   end
   for key, val in pairs(self._colors) do
     if type(val) == "table" then
-      modifiers[#modifiers + 1] = ESCAPE_CODES[key] .. string.format(RGB_FORMAT, unpack(val))
+      modifiers[#modifiers + 1] = ESCAPE_CODES[key] .. string.format(RGB_FORMAT, table.unpack(val))
     else
       modifiers[#modifiers + 1] = ESCAPE_CODES[key] .. string.format(ANSI256_FORMAT, val)
     end
   end
-  if #modifiers == 0 then return "" end
+  if #modifiers == 0 then
+    return ""
+  end
   return ESCAPE_START .. table.concat(modifiers, ";") .. ESCAPE_END
 end
 
@@ -229,7 +232,9 @@ function LuaText:render()
 end
 
 function LuaText.__concat(self, other)
-  if type(other) == "string" then return LuaText:new(self):render() .. other end
+  if type(other) == "string" then
+    return LuaText:new(self):render() .. other
+  end
   return LuaText:new(self):append(other)
 end
 
