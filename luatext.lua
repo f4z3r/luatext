@@ -8,12 +8,22 @@ local Layer = {
   BG = 48, -- background
 }
 
----return the ANSI escape string for a color
+---return the ANSI escape string for an ANSI color code
 ---@param layer Layer
 ---@param color number
 ---@return string
 local function format_color(layer, color)
   return string.format(ESCAPE .. "[%d;5;%dm", layer, color)
+end
+
+---return the ANSI escape string for a RGB color
+---@param layer Layer
+---@param r number
+---@param g number
+---@param b number
+---@return string
+local function format_color_rgb(layer, r, g, b)
+  return string.format(ESCAPE .. "[%d;2;%d;%d;%dm", layer, r, g, b)
 end
 
 ---@class ColoredString
@@ -56,11 +66,31 @@ function ColoredString:fg(color)
   return self
 end
 
+---set the foreground color of this ColoredString to an RGB value
+---@param r number
+---@param g number
+---@param b number
+---@return ColoredString
+function ColoredString:fg_rgb(r, g, b)
+  self._prefixes.fg = format_color_rgb(Layer.FG, r, g, b)
+  return self
+end
+
 ---set the background color of this ColoredString
 ---@param color number
 ---@return ColoredString
 function ColoredString:bg(color)
   self._prefixes.bg = format_color(Layer.BG, color)
+  return self
+end
+
+---set the background color of this ColoredString to an RGB value
+---@param r number
+---@param g number
+---@param b number
+---@return ColoredString
+function ColoredString:bg_rgb(r, g, b)
+  self._prefixes.fg = format_color_rgb(Layer.BG, r, g, b)
   return self
 end
 
@@ -89,6 +119,20 @@ end
 ---@return ColoredString
 function ColoredString:underlined()
   self._prefixes.underlined = ESCAPE .. "[4m"
+  return self
+end
+
+---set the text of this ColoredString to blink
+---@return ColoredString
+function ColoredString:blink()
+  self._prefixes.blink = ESCAPE .. "[5m"
+  return self
+end
+
+---set the font of this ColoredString to crossed-out
+---@return ColoredString
+function ColoredString:crossed()
+  self._prefixes.crossed = ESCAPE .. "[9m"
   return self
 end
 

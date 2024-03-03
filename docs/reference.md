@@ -6,7 +6,9 @@
     - [`new`](#new)
     - [`text`](#text)
     - [`fg`](#fg)
+    - [`fg_rgb`](#fgrgb)
     - [`bg`](#bg)
+    - [`bg_rgb`](#bgrgb)
     - [`bold`](#bold)
     - [`dim`](#dim)
     - [`italic`](#italic)
@@ -51,7 +53,20 @@ Set the text of this `ColoredString`.
 
 Set the foreground color of this `ColoredString`.
 
-@_param_ `color` — The color to set.
+@_param_ `color` — The color to set, as an ANSI color code.
+
+### `fg_rgb`
+
+```lua
+(method) ColoredString:fg_rgb(r: number, g: number, b: number)
+  -> ColoredString
+```
+
+Set the foreground color of this `ColoredString` to an RGB value.
+
+@_param_ `r` — The red value to set (between 0 and 255).
+@_param_ `g` — The green value to set (between 0 and 255).
+@_param_ `b` — The blue value to set (between 0 and 255).
 
 ### `bg`
 
@@ -62,7 +77,20 @@ Set the foreground color of this `ColoredString`.
 
 Set the background color of this `ColoredString`.
 
-@_param_ `color` — The color to set.
+@_param_ `color` — The color to set, as an ANSI color code.
+
+### `bg_rgb`
+
+```lua
+(method) ColoredString:bg_rgb(r: number, g: number, b: number)
+  -> ColoredString
+```
+
+Set the background color of this `ColoredString` to an RGB value.
+
+@_param_ `r` — The red value to set (between 0 and 255).
+@_param_ `g` — The green value to set (between 0 and 255).
+@_param_ `b` — The blue value to set (between 0 and 255).
 
 ### `bold`
 
@@ -99,6 +127,24 @@ Set the font of this `ColoredString` to italic.
 ```
 
 Set the font of this `ColoredString` to underlined.
+
+### `blink`
+
+```lua
+(method) ColoredString:blink()
+  -> ColoredString
+```
+
+Set the text of this `ColoredString` to blink.
+
+### `crossed`
+
+```lua
+(method) ColoredString:crossed()
+  -> ColoredString
+```
+
+Set the font of this `ColoredString` to crossed-out.
 
 ### `add_substrings`
 
