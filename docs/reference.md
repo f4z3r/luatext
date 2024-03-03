@@ -6,14 +6,14 @@
     - [`new`](#new)
     - [`text`](#text)
     - [`fg`](#fg)
-    - [`fg_rgb`](#fgrgb)
+    - [`fg_rgb`](#fg_rgb)
     - [`bg`](#bg)
-    - [`bg_rgb`](#bgrgb)
+    - [`bg_rgb`](#bg_rgb)
     - [`bold`](#bold)
     - [`dim`](#dim)
     - [`italic`](#italic)
     - [`underlined`](#underlined)
-    - [`add_substrings`](#addsubstrings)
+    - [`add_substrings`](#add_substrings)
     - [`render`](#render)
     - [`RESET`](#reset)
 <!--toc:end-->
@@ -31,7 +31,7 @@
 
 Create a new `ColoredString` from a string.
 
-@_param_ `str` — The text to be displayed in this `ColoredString`.
+- @_param_ `str` — The text to be displayed in this `ColoredString`.
 
 ### `text`
 
@@ -42,7 +42,7 @@ Create a new `ColoredString` from a string.
 
 Set the text of this `ColoredString`.
 
-@_param_ `str` — The text to set.
+- @_param_ `str` — The text to set.
 
 ### `fg`
 
@@ -53,7 +53,7 @@ Set the text of this `ColoredString`.
 
 Set the foreground color of this `ColoredString`.
 
-@_param_ `color` — The color to set, as an ANSI color code.
+- @_param_ `color` — The color to set, as an ANSI color code.
 
 ### `fg_rgb`
 
@@ -64,9 +64,9 @@ Set the foreground color of this `ColoredString`.
 
 Set the foreground color of this `ColoredString` to an RGB value.
 
-@_param_ `r` — The red value to set (between 0 and 255).
-@_param_ `g` — The green value to set (between 0 and 255).
-@_param_ `b` — The blue value to set (between 0 and 255).
+- @_param_ `r` — The red value to set (between 0 and 255).
+- @_param_ `g` — The green value to set (between 0 and 255).
+- @_param_ `b` — The blue value to set (between 0 and 255).
 
 ### `bg`
 
@@ -77,7 +77,7 @@ Set the foreground color of this `ColoredString` to an RGB value.
 
 Set the background color of this `ColoredString`.
 
-@_param_ `color` — The color to set, as an ANSI color code.
+- @_param_ `color` — The color to set, as an ANSI color code.
 
 ### `bg_rgb`
 
@@ -88,9 +88,9 @@ Set the background color of this `ColoredString`.
 
 Set the background color of this `ColoredString` to an RGB value.
 
-@_param_ `r` — The red value to set (between 0 and 255).
-@_param_ `g` — The green value to set (between 0 and 255).
-@_param_ `b` — The blue value to set (between 0 and 255).
+- @_param_ `r` — The red value to set (between 0 and 255).
+- @_param_ `g` — The green value to set (between 0 and 255).
+- @_param_ `b` — The blue value to set (between 0 and 255).
 
 ### `bold`
 
