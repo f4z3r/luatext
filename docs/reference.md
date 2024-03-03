@@ -2,28 +2,27 @@
 
 <!--toc:start-->
 - [LuaText](#luatext)
-  - [LuaText](#coloredstring)
-    - [new](#new)
-    - [text](#text)
-    - [fg](#fg)
-      - [Example](#example)
-    - [bg](#bg)
-      - [Example](#example)
-    - [bold](#bold)
-    - [dim](#dim)
-    - [italic](#italic)
-    - [underlined](#underlined)
-    - [blink](#blink)
-    - [inverse](#inverse)
-    - [hidden](#hidden)
-    - [strikethrough](#strikethrough)
-    - [framed](#framed)
-    - [encircled](#encircled)
-    - [overlined](#overlined)
-    - [append](#append)
-      - [Example](#example)
-    - [render](#render)
-    - [RESET](#reset)
+  - [new](#new)
+  - [text](#text)
+  - [fg](#fg)
+    - [fg example](#fg-example)
+  - [bg](#bg)
+    - [bg Example](#bg-example)
+  - [bold](#bold)
+  - [dim](#dim)
+  - [italic](#italic)
+  - [underlined](#underlined)
+  - [blink](#blink)
+  - [inverse](#inverse)
+  - [hidden](#hidden)
+  - [strikethrough](#strikethrough)
+  - [framed](#framed)
+  - [encircled](#encircled)
+  - [overlined](#overlined)
+  - [append](#append)
+    - [append example](#append-example)
+  - [render](#render)
+  - [RESET](#reset)
 <!--toc:end-->
 
 ## new
@@ -66,7 +65,7 @@ Set the foreground color of this `LuaText`.
 Parameters:
 - `color` — The color to set. This can be either an ANSI256 color code, or a table of RGB values.
 
-### Example
+### fg example
 
 ```lua
 local text = require("luatext")
@@ -88,7 +87,7 @@ Set the background color of this `LuaText`.
 Parameters:
 - `color` — The color to set. This can be either an ANSI256 color code, or a table of RGB values.
 
-### Example
+### bg Example
 
 ```lua
 local text = require("luatext")
@@ -241,7 +240,7 @@ formatting from the original string for a substring.
 Parameters:
 - `...` — The strings to append.
 
-### Example
+### append example
 
 Print a red string, in which the word `beautiful` is underlined:
 
