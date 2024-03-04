@@ -26,6 +26,7 @@ A simple example to render an entire string in red on a black background, underl
 local text = require("luatext")
 
 local my_str = text
+    .Text
     :new("Hello world!!")
     :fg(160)  -- red as an ANSI256 color code
     :bg({0, 0, 0}) -- black as an RGB value
@@ -45,11 +46,12 @@ text. Thus you can for instance run:
 local text = require("luatext")
 
 local my_str = text
+    .Text
     :new()
     :fg(text.Color.Red)
     :append(
       "Hello ",
-      text:new("beautiful"):underlined(),
+      text.Text:new("beautiful"):underlined(),
       " world"
     )
 
@@ -65,7 +67,7 @@ A LuaText object can also be used as a standard string:
 ```lua
 local text = require("luatext")
 
-print("Hello "..text:new("fading"):blink().." world...")
+print("Hello "..text.Text:new("fading"):blink().." world...")
 ```
 
 Which will print `Hello fading world...` with the word `fading` blinking.

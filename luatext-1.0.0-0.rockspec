@@ -1,8 +1,8 @@
 package = "LuaText"
-version = "0.1.3-0"
+version = "1.0.0-0"
 source = {
   url = "git://github.com/f4z3r/luatext.git",
-   tag = "v0.1.3",
+   tag = "v1.0.0",
 }
 description = {
   summary = "A small library to print colored text",
