@@ -9,7 +9,7 @@ local BG_PREFIX = ESCAPE .. "48;5;"
 context("Given simple texts,", function()
   local simple = nil
   before_each(function()
-    simple = text:new("hello world")
+    simple = text.Text:new("hello world")
   end)
 
   describe("when they are unformatted, they", function()
@@ -33,8 +33,8 @@ context("Given colored texts,", function()
   local red = nil
   local blue = nil
   before_each(function()
-    red = text:new("red")
-    blue = text:new("blue")
+    red = text.Text:new("red")
+    blue = text.Text:new("blue")
   end)
 
   describe("when they are rendered with a foreground color, they", function()
@@ -97,7 +97,7 @@ context("Given colored texts,", function()
 
   describe("when they are provided with substrings, they", function()
     before_each(function()
-      red:append(" car ", text:new("speeding"):bold(), " through town")
+      red:append(" car ", text.Text:new("speeding"):bold(), " through town")
     end)
     it("should apply potential modifications only to substrings", function()
       assert.is_true(
