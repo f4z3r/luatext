@@ -78,6 +78,15 @@ For a full reference of the API, see [the reference](/docs/reference.md).
 
 ## Installation
 
+This module is hosted on LuaRocks and can thus be installed via:
+
+```bash
+luarocks install luatext
+```
+
+Otherwise, since the module is fully self contained, one can also simply copy the `luatext.lua` into
+their project.
+
 ## ANSI256 Color Codes
 
 To get a list of ANSI color codes run:
