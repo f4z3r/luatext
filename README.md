@@ -9,7 +9,7 @@ A small library to print colored text to the console.
   - [Example](#example)
   - [Reference](#reference)
   - [Installation](#installation)
-  - [Color Codes](#color-codes)
+  - [ANSI256 Color Codes](#ansi256-color-codes)
   - [Development](#development)
     - [Testing](#testing)
 <!--toc:end-->
@@ -37,7 +37,7 @@ print(my_str)
 
 Running this code will produce the following output:
 
-![Output from a simple example](assets/simple.png)
+![Output from a simple example](assets/simple.gif)
 
 You can also add substrings to your text. The substrings will inherit the formatting of the parent
 text. Thus you can for instance run:
@@ -60,7 +60,7 @@ print(my_str)
 
 Which will produce a fully red string, with only the substring `beautiful` underlined:
 
-![Output from an example with substrings](assets/substrings.png)
+![Output from an example with substrings](assets/substrings.gif)
 
 A LuaText object can also be used as a standard string:
 
