@@ -78,6 +78,12 @@ function Text:text(str)
   return self
 end
 
+---get the raw text of the Text object
+---@return string
+function Text:get_raw_text()
+  return self._data
+end
+
 ---set the foreground color of this Text
 ---@param color number|table either an ANSI256 color code, or a RGB table
 ---@return Text

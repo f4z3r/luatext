@@ -5,6 +5,7 @@
   - [Text](#text)
     - [new](#new)
     - [text](#text)
+    - [get_raw_text](#getrawtext)
     - [fg](#fg)
       - [fg example](#fg-example)
     - [bg](#bg)
@@ -54,6 +55,17 @@ Set the text of this `Text`.
 
 Parameters:
 - `str` — The text to be displayed in this `Text`.
+
+---
+
+### get_raw_text
+
+```lua
+(method) Text:get_raw_text()
+  -> string
+```
+
+Retrieve the raw text contained within the `Text` object.
 
 ---
 
