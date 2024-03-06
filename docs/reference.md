@@ -1,5 +1,7 @@
 # LuaText
 
+<a name="top"></a>
+
 <!--toc:start-->
 - [LuaText](#luatext)
   - [Text](#text)
@@ -42,6 +44,8 @@ Create a new `Text` from a string.
 Parameters:
 - `str` — The text to be displayed in this `Text`.
 
+[Back to top](#top)
+
 ---
 
 ### text
@@ -56,6 +60,8 @@ Set the text of this `Text`.
 Parameters:
 - `str` — The text to be displayed in this `Text`.
 
+[Back to top](#top)
+
 ---
 
 ### get_raw_text
@@ -66,6 +72,8 @@ Parameters:
 ```
 
 Retrieve the raw text contained within the `Text` object.
+
+[Back to top](#top)
 
 ---
 
@@ -89,6 +97,8 @@ print(text.Text:new("Hello"):fg(160)) -- prints in red
 print(text.Text:new("Hi"):fg({0, 255, 0})) -- prints in green
 ```
 
+[Back to top](#top)
+
 ---
 
 ### bg
@@ -111,6 +121,8 @@ print(text.Text:new("Hello"):bg(160)) -- prints on red background
 print(text.Text:new("Hi"):bg({0, 255, 0})) -- prints on green background
 ```
 
+[Back to top](#top)
+
 ---
 
 ### bold
@@ -121,6 +133,8 @@ print(text.Text:new("Hi"):bg({0, 255, 0})) -- prints on green background
 ```
 
 Make the fond bold.
+
+[Back to top](#top)
 
 ---
 
@@ -133,6 +147,8 @@ Make the fond bold.
 
 Make the text dim.
 
+[Back to top](#top)
+
 ---
 
 ### italic
@@ -143,6 +159,8 @@ Make the text dim.
 ```
 
 Make the fond italic.
+
+[Back to top](#top)
 
 ---
 
@@ -155,6 +173,8 @@ Make the fond italic.
 
 Make the text underlined.
 
+[Back to top](#top)
+
 ---
 
 ### blink
@@ -165,6 +185,8 @@ Make the text underlined.
 ```
 
 Make the text blink.
+
+[Back to top](#top)
 
 ---
 
@@ -179,6 +201,8 @@ Invert the text.
 
 > Support for this may vary.
 
+[Back to top](#top)
+
 ---
 
 ### hidden
@@ -190,6 +214,8 @@ Invert the text.
 
 Hide the text
 
+[Back to top](#top)
+
 ---
 
 ### strikethrough
@@ -200,6 +226,8 @@ Hide the text
 ```
 
 Make the text strikethrough.
+
+[Back to top](#top)
 
 ---
 
@@ -214,6 +242,8 @@ Frame the text.
 
 > Support for this may vary.
 
+[Back to top](#top)
+
 ---
 
 ### encircled
@@ -227,6 +257,8 @@ Encircle the text.
 
 > Support for this may vary.
 
+[Back to top](#top)
+
 ---
 
 ### overlined
@@ -239,6 +271,8 @@ Encircle the text.
 Make the text overlined.
 
 > Support for this may vary.
+
+[Back to top](#top)
 
 ---
 
@@ -274,6 +308,8 @@ local my_str = text
 print(my_str)
 ```
 
+[Back to top](#top)
+
 ---
 
 ### render
@@ -286,6 +322,8 @@ print(my_str)
 Render the `Text`, turning it into an escaped string. This typically does not need to be
 called explicitly, as the `Text` will automatically render when used in a `string` context
 (such as when printing it).
+
+[Back to top](#top)
 
 ---
 
@@ -306,6 +344,8 @@ Standard ANSI colors. Can be used in place of any color code. Available values a
 - `Cyan`
 - `White`
 
+[Back to top](#top)
+
 ---
 
 ## RESET
@@ -317,3 +357,6 @@ string
 The ANSI escape to reset all formatting. This is only to be used in bogus cases. A `Text`
 will automatically reset the formatting at the very end of the string to avoid formatting leaking
 into following text.
+
+[Back to top](#top)
+
