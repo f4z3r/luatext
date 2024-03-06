@@ -53,6 +53,11 @@ context("Given colored texts,", function()
       assert.are.equal("red", red:get_raw_text())
       assert.are.equal("blue", blue:get_raw_text())
     end)
+
+    it("should correctly handle substrings", function()
+      local red = text.Text:new("red"):append(" balloon ", text.Text:new("flying"):bg(text.Color.Black))
+      assert.are.equal("red balloon flying", red:get_raw_text())
+    end)
   end)
 
   describe("when they are rendered with a background color, they", function()

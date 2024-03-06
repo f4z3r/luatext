@@ -59,6 +59,7 @@ function Text:new(str)
   local obj = str
   if type(obj) ~= "table" then
     str = str or ""
+    ---@cast str string
     obj = {
       _data = str,
       _modifiers = {},
@@ -81,7 +82,15 @@ end
 ---get the raw text of the Text object
 ---@return string
 function Text:get_raw_text()
-  return self._data
+  if not self._children then
+    return self._data
+  else
+    local res = self._data
+    for _, child in ipairs(self._children) do
+      res = res .. child:get_raw_text()
+    end
+    return res
+  end
 end
 
 ---set the foreground color of this Text
