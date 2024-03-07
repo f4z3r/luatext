@@ -1,11 +1,11 @@
-# LuaText
+# ![LuaText](./assets/logo.png)
 
 A small library to print colored text to the console.
 
 ---
 
 <!--toc:start-->
-- [LuaText](#luatext)
+- [![LuaText](./assets/logo.png)](#luatextassetslogopng)
   - [Example](#example)
   - [Reference](#reference)
   - [Installation](#installation)
