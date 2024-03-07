@@ -5,13 +5,12 @@ A small library to print colored text to the console.
 ---
 
 <!--toc:start-->
-- [![LuaText](./assets/logo.png)](#luatextassetslogopng)
-  - [Example](#example)
-  - [Reference](#reference)
-  - [Installation](#installation)
-  - [ANSI256 Color Codes](#ansi256-color-codes)
-  - [Development](#development)
-    - [Testing](#testing)
+- [Example](#example)
+- [Reference](#reference)
+- [Installation](#installation)
+- [ANSI256 Color Codes](#ansi256-color-codes)
+- [Development](#development)
+  - [Testing](#testing)
 <!--toc:end-->
 
 ---
