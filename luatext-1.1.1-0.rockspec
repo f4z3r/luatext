@@ -1,3 +1,4 @@
+rockspec_format = "3.0"
 package = "LuaText"
 version = "1.1.1-0"
 source = {
