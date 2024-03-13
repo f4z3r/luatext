@@ -343,6 +343,14 @@ Standard ANSI colors. Can be used in place of any color code. Available values a
 - `Magenta`
 - `Cyan`
 - `White`
+- `BrightBlack`
+- `BrightRed`
+- `BrightGreen`
+- `BrightYellow`
+- `BrightBlue`
+- `BrightMagenta`
+- `BrightCyan`
+- `BrightWhite`
 
 [Back to top](#top)
 

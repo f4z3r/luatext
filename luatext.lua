@@ -48,6 +48,14 @@ local Color = {
   Magenta = 5,
   Cyan = 6,
   White = 7,
+  BrightBlack = 8,
+  BrightRed = 9,
+  BrightGreen = 10,
+  BrightYellow = 11,
+  BrightBlue = 12,
+  BrightMagenta = 13,
+  BrightCyan = 14,
+  BrightWhite = 15,
 }
 
 luatext.Color = Color
