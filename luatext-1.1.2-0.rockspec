@@ -1,9 +1,10 @@
+local package_version = "1.1.2"
 rockspec_format = "3.0"
 package = "LuaText"
-version = "1.1.1-0"
+version = package_version .. "-0"
 source = {
   url = "git://github.com/f4z3r/luatext.git",
-  tag = "v1.1.1",
+  tag = "v" .. package_version,
 }
 description = {
   summary = "A small library to print colored text",
