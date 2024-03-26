@@ -79,6 +79,10 @@ Which will print `Hello fading world...` with the word `fading` blinking.
 
 For a full reference of the API, see [the reference](/docs/reference.md).
 
+## NO_COLOR
+
+This library supports [`NO_COLOR`](https://no-color.org/).
+
 ## Installation
 
 This module is hosted on LuaRocks and can thus be installed via:

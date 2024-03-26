@@ -1,9 +1,19 @@
+local os = require("os")
 local string = require("string")
 local table = require("table")
 
 --- compatibility
 if not table.unpack and unpack then
   table.unpack = unpack
+end
+
+--- no_color support
+local function colorize()
+  local no_color = os.getenv("NO_COLOR")
+  if no_color and no_color ~= "" then
+    return false
+  end
+  return true
 end
 
 local ESCAPE_START = string.format("%c[", 27)
@@ -251,6 +261,9 @@ end
 ---render the Text, turning it into an escaped string
 ---@return string
 function Text:render()
+  if not colorize() then
+    return self:get_raw_text()
+  end
   local res = luatext.RESET
   res = res .. self:render_no_reset()
   res = res .. luatext.RESET
