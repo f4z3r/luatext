@@ -1,4 +1,4 @@
-local package_version = "1.1.2"
+local package_version = "1.2.0"
 rockspec_format = "3.0"
 package = "LuaText"
 version = package_version .. "-0"

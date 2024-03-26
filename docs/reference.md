@@ -30,6 +30,11 @@
   - [RESET](#reset)
 <!--toc:end-->
 
+---
+
+This library supports [`NO_COLOR`](https://no-color.org/). Setting this environment variable will
+disable all text formatting when the texts are rendered.
+
 ## Text
 
 ### new
