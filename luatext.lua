@@ -16,6 +16,8 @@ local function colorize()
   return true
 end
 
+local should_colorize = colorize()
+
 local ESCAPE_START = string.format("%c[", 27)
 local ESCAPE_END = "m"
 local RGB_FORMAT = ";2;%d;%d;%d"
@@ -261,7 +263,7 @@ end
 ---render the Text, turning it into an escaped string
 ---@return string
 function Text:render()
-  if not colorize() then
+  if not should_colorize then
     return self:get_raw_text()
   end
   local res = luatext.RESET
