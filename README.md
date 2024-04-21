@@ -104,10 +104,11 @@ curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403bba96bd7bcd1
 
 ## Development
 
-### Testing
-
-Testing is done via `busted`. To run all tests, run:
+You can setup a dev environment with the needed Lua version:
 
 ```bash
-busted .
+# launch shell with some lua version and the dependencies installed:
+nix develop .#lua52
 ```
+
+and then test with `busted`.
