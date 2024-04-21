@@ -1,8 +1,14 @@
 # ![LuaText](./assets/logo.png)
 
-![GitHub License](https://img.shields.io/github/license/f4z3r/luatext?link=https%3A%2F%2Fgithub.com%2Ff4z3r%2Fluatext%2Fblob%2Fmain%2FLICENSE)
-![GitHub Release](https://img.shields.io/github/v/release/f4z3r/luatext?logo=github&link=https%3A%2F%2Fgithub.com%2Ff4z3r%2Fluatext%2Freleases)
-![LuaRocks](https://img.shields.io/luarocks/v/f4z3r/luatext?logo=lua&link=https%3A%2F%2Fluarocks.org%2Fmodules%2Ff4z3r%2Fluatext)
+<a href="https://github.com/f4z3r/luatext/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/f4z3r/luatext?link=https%3A%2F%2Fgithub.com%2Ff4z3r%2Fluatext%2Fblob%2Fmain%2FLICENSE" />
+</a>
+<a href="https://github.com/f4z3r/luatext/releases">
+    <img src="https://img.shields.io/github/v/release/f4z3r/luatext?logo=github&link=https%3A%2F%2Fgithub.com%2Ff4z3r%2Fluatext%2Freleases" />
+</a>
+<a href="https://luarocks.org/modules/f4z3r/luatext">
+    <img src="https://img.shields.io/luarocks/v/f4z3r/luatext?logo=lua&link=https%3A%2F%2Fluarocks.org%2Fmodules%2Ff4z3r%2Fluatext" />
+</a>
 
 A small library to print colored text to the console.
 
