@@ -23,6 +23,9 @@
       makeLuaShell = shellName: luaPackage:
         pkgs.mkShell {
           packages = [luaPackage.busted];
+          shellHook = ''
+            $SHELL && exit
+          '';
         };
     in {
       devShells = builtins.mapAttrs makeLuaShell luaPackages;
